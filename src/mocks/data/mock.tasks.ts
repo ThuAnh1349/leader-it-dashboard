@@ -157,9 +157,8 @@ export const mockTasks: TaskBrief[] = [
 ];
 
 // Assign active_tasks back to members
-export function getMembersWithTasks(): import('../../types/it.types').MemberDetail[] {
-  const { mockMembers: members } = require('./mock.members');
-  return members.map((member: import('../../types/it.types').MemberDetail) => ({
+export function getMembersWithTasks(members: import('../../types/it.types').MemberDetail[]): import('../../types/it.types').MemberDetail[] {
+  return members.map(member => ({
     ...member,
     active_tasks: mockTasks.filter(t =>
       t.assignee?.id === member.id && t.stage !== 'done'

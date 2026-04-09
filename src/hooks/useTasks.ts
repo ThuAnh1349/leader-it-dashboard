@@ -26,7 +26,7 @@ export function useTasks(filter: TasksFilter = {}) {
     setError(null);
     try {
       const res = await getTasks(filter);
-      setData(res.data as KanbanData);
+      setData(res.data as unknown as KanbanData);
     } catch {
       setError('Không thể tải danh sách task');
     } finally {
